@@ -1,5 +1,5 @@
 
-> このページを開く [https://miniminiplayer.github.io/countdown-and-start/](https://miniminiplayer.github.io/countdown-and-start/)
+> このページを開く [https://gto001.github.io/countdown-and-start/](https://gto001.github.io/countdown-and-start/)
 
 ## 拡張機能として使用
 
