@@ -1,6 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     if (status == 0) {
-        real_minute += 5
+        real_minute += 1
         basic.showNumber(real_minute)
     }
     if (status == 1) {
@@ -25,6 +25,7 @@ input.onButtonPressed(Button.AB, function () {
     real_minute = 0
     minute = 0
     basic.showNumber(real_minute)
+    control.reset()
 })
 input.onButtonPressed(Button.B, function () {
     status = 1
@@ -37,8 +38,14 @@ input.onButtonPressed(Button.B, function () {
     basic.showString("GO!")
     degree = 180 / (minute * 60)
     for (let index = 0; index < real_minute; index++) {
+        if (status == 0) {
+            break;
+        }
         basic.showNumber(minute)
         for (let index = 0; index < 60; index++) {
+            if (status == 0) {
+                break;
+            }
             real_degree = real_degree + degree
             pins.servoWritePin(AnalogPin.P1, real_degree)
             basic.pause(1000)
