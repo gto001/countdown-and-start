@@ -1,9 +1,12 @@
 input.onButtonPressed(Button.A, function () {
     if (status == 0) {
-        real_minute += 1
+        vi = vi + 1
+        if (vi >= 配列.length) {
+            vi = 0
+        }
+        real_minute = 配列[vi]
         basic.showNumber(real_minute)
-    }
-    if (status == 1) {
+    } else {
         basic.showIcon(IconNames.No)
         music.playTone(247, music.beat(BeatFraction.Whole))
         basic.pause(100)
@@ -37,6 +40,8 @@ input.onButtonPressed(Button.B, function () {
     music.playTone(392, music.beat(BeatFraction.Whole))
     basic.showString("GO!")
     degree = 180 / (minute * 60)
+    real_degree = 0
+    pins.servoWritePin(AnalogPin.P1, real_degree)
     for (let index = 0; index < real_minute; index++) {
         if (status == 0) {
             break;
@@ -185,8 +190,20 @@ input.onButtonPressed(Button.B, function () {
 let degree = 0
 let minute = 0
 let real_minute = 0
+let vi = 0
+let 配列: number[] = []
 let real_degree = 0
 let status = 0
 status = 0
 real_degree = 0
+配列 = [
+1,
+5,
+10,
+15,
+30,
+60,
+90
+]
+vi = 100
 pins.servoWritePin(AnalogPin.P1, 0)
